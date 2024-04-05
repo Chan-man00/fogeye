@@ -12,8 +12,8 @@ import rawpy
 import imageio
 import datetime
 
-dataroot = './pre_hdr/3_31_24_fog'
-output_dataroot = './post_hdr/hdr_images/fog'
+#dataroot = './pre_hdr/3_31_24_fog'
+#output_dataroot = './post_hdr/hdr_images/fog'
 
 
 def make_dir_hdr(dataroot):
@@ -150,6 +150,10 @@ def create_hdr_images(dataroot, out_dataroot='./post_hdr/hdr_images', HDR_type='
 
 
 if __name__ == '__main__':
-    make_dir_hdr(dataroot)
-    create_hdr_images(dataroot, out_dataroot=output_dataroot)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dataroot', type=str, required=True, help='The root directory of the dataset')
+    parser.add_argument('--path_no_fog', type=str, required=True, help='The path to the images without fog')
+    args = parser.parse_args()
+    make_dir_hdr(args.dataroot)
+    create_hdr_images(args.dataroot, out_dataroot=args.path_no_fog, HDR_type='Debevec')
 
