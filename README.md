@@ -1,14 +1,14 @@
-# STEREOFOG - Computational DeFogging via Image-to-Image Translation on a real-world Dataset ![Visitors](https://api.visitorbadge.io/api/visitors?path=apoll2000%2Fstereofog&countColor=%23263759)
+# FogEye - Computational DeFogging via Image-to-Image Translation on a real-world Dataset ![Visitors](https://api.visitorbadge.io/api/visitors?path=apoll2000%2FFogEye&countColor=%23263759)
 Github io page link | [<img src="https://static-00.iconduck.com/assets.00/arxiv-icon-1024x301-v4aiipf1.png" height="16">](http://arxiv.org/abs/2312.02344) | [<img src="https://www.edigitalagency.com.au/wp-content/uploads/YouTube-icon-red-png.png" height="16">](https://youtu.be/P8lyz_wZo2c)
 
-The STEREOFOG dataset is available here: [GDrive](https://drive.google.com/drive/folders/1Tzo1lDyHiiTZUwWrtjHaJ5GObJZZZMe1?usp=share_link) | [tubcloud](https://tubcloud.tu-berlin.de/s/eXwHQyfbzkbTdej)
+The FogEye dataset is available here: [OneDrive]([https://drive.google.com/drive/folders/1Tzo1lDyHiiTZUwWrtjHaJ5GObJZZZMe1?usp=share_link](https://uofutah-my.sharepoint.com/:f:/g/personal/u1259003_umail_utah_edu/EixKW5TDXE9NtsfGnCAcxcsB4uOTbCRi83Eg4y5iKnUHUQ?e=GcZcF4))
 
-The Supplement 1 PDF is available here: [GDrive](https://drive.google.com/file/d/1-u44cPluL7TxL03BzMC0Y1bDo7aJvyuR/view?usp=share_link) | [tubcloud](https://tubcloud.tu-berlin.de/s/s6ofNFzjLt4AnY4)
+
 
 ## Graphical Abstract
 <p align="center">
 <img src="images/paper_headline_image.png" alt="Graphical abstract" width="700"/>
-<figcaption align = "center"><b>Overview of the STEREOFOG project. a): A diagram summarizing the work done in this work. b): Example results obtained by applying the pix2pix framework to the STEREOFOG dataset. Our approach works for a range of fog densities.</b></figcaption>
+<figcaption align = "center"><b>Overview of the FogEye project. a): A diagram summarizing the work done in this work. b): Example results obtained by applying the pix2pix framework to the FogEye dataset. Our approach works for a range of fog densities.</b></figcaption>
 </p>
 
 ## News
@@ -17,7 +17,7 @@ nothing to show here
 ---
 
 <p align="center">
-<img src="images/stereofog_logo.png" alt="Stereofog logo" width="275"/>
+<img src="images/FogEye_logo.png" alt="FogEye logo" width="275"/>
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@ This repository documents a research project carried out at the [Laboratory for 
 
 
 ## Table of Contents
-- [stereofog](#stereofog)
+- [FogEye](#FogEye)
   - [Table of Contents](#table-of-contents)
   - [Goal](#goal)
   - [Potential applications](#potential-applications)
@@ -86,7 +86,7 @@ This project had three objectives:
 ## Project timeline
 The project was carried out over the course three months, from July to September 2023. The following Gantt chart shows the project timeline:
 
-![project timeline](images/gantt_chart_stereofog.png "project timeline")
+![project timeline](images/gantt_chart_FogEye.png "project timeline")
 <figcaption align = "center"><b>Project timeline</b></figcaption>
 
 
@@ -343,12 +343,12 @@ All models were trained for the default 200 epochs for the pix2pix model. The tr
 
 Clone the repository using `git`:
 ```bash
-git clone https://github.com/apoll2000/stereofog.git
+git clone https://github.com/apoll2000/FogEye.git
 ```
 
 Navigate into the repository:
 ```bash
-cd stereofog
+cd FogEye
 ```
 
 ### 2. Installing a Python environment
@@ -358,21 +358,21 @@ Next, an appropriate Python environment needs to be created. All code was run on
 ---
 The environment can be created using `conda` with:
 ```bash
-conda create --name stereofog python=3.9.7
+conda create --name FogEye python=3.9.7
 ```
 
 Or using `pyenv virtualenv` with:
 ```bash
-pyenv virtualenv 3.9.7 stereofog
+pyenv virtualenv 3.9.7 FogEye
 ```
 ---
 Then activate the environment with:
 ```bash
-conda activate stereofog
+conda activate FogEye
 ```
 Or:
 ```bash
-pyenv activate stereofog
+pyenv activate FogEye
 ```
 
 ---
@@ -400,11 +400,11 @@ It is important that you specify the right `torch` version if you would like to 
 The dataset is currently being hosted here:
 [TUBCloud](https://tubcloud.tu-berlin.de/s/TWW4ABJSarpZ7Mc). Depending on the further development of the project, this might not be the final storing location.
 
-Place the `stereofog_images` folder into the `datasets` folder of the repository:
+Place the `FogEye_images` folder into the `datasets` folder of the repository:
 
 ```bash
 -- datasets
-    |-- stereofog_images
+    |-- FogEye_images
         |-- 2023-08-03-04
             |-- A
                 |-- 01-04_08_23__1.bmp
@@ -421,7 +421,7 @@ Place the `stereofog_images` folder into the `datasets` folder of the repository
 
 The dataset needs to be prepared for training. This includes transforming the folder structure into one compatible with the pix2pix framework and splitting the dataset into training, validation and testing sets. It can be performed using the following command:
 ```bash
-python preprocess_stereofog_dataset.py --dataroot path/to/dataset
+python preprocess_FogEye_dataset.py --dataroot path/to/dataset
 ```
 
 ### 5. Training a model
@@ -446,7 +446,7 @@ This GitHub page includes several helper scripts to perform different actions li
 
 These are:
 Preprocessing:
-- `preprocess_stereofog_dataset.py`
+- `preprocess_FogEye_dataset.py`
 Hyperparameter tuning:
 - `hyperparameter_dropoutRate.py`
 - `hyperparameter_GAN.py`
@@ -535,8 +535,8 @@ The hardware is licensed under the [CERN Open HArdware License v2 - Weakly Recip
 If you use the dataset or any of the code in this repository created by us, please cite the following paper:
 
 ```
-@misc{pollak2023stereofog,
-      title={STEREOFOG -- Computational DeFogging via Image-to-Image Translation on a real-world Dataset}, 
+@misc{pollak2023FogEye,
+      title={FogEye -- Computational DeFogging via Image-to-Image Translation on a real-world Dataset}, 
       author={Anton Pollak and Rajesh Menon},
       year={2023},
       eprint={2312.02344},
