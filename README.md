@@ -24,9 +24,9 @@ nothing to show here
 <font size = "1"> logo image attributions: <a href="https://commons.wikimedia.org/wiki/File:Utah_Utes_-_U_logo.svg">U of U</a> | <a href="https://commons.wikimedia.org/wiki/File:Deutscher_Akademischer_Austauschdienst_logo.svg">DAAD</a></font>
 </p>
 
-This repository documents a research project carried out at the [Laboratory for Optical Nanotechnologies](https://nanoptics.wordpress.com) at the University of Utah under supervision of [Prof. Rajesh Menon](https://faculty.utah.edu/u0676529-Rajesh_Menon/research/index.hml) in Summer (July-September) 2023. It was funded as part of the [RISE program](https://www.daad.de/rise/en/) by the [German Academic Exchange Service (Deutscher Akademischer Austauschdienst (DAAD))](https://en.wikipedia.org/wiki/German_Academic_Exchange_Service).
+This repository documents a research project carried out at the [Laboratory for Optical Nanotechnologies](https://nanoptics.wordpress.com) at the University of Utah under supervision of [Prof. Rajesh Menon](https://faculty.utah.edu/u0676529-Rajesh_Menon/research/index.hml) in Spring (January-April) 2024. It was funded by [Prof. Rajesh Menon].
 
-> Disclaimer: This work was supported by a fellowship of the German Academic Exchange Service (DAAD).
+
 
 
  real image  |  foggy image  |   reconstructed image 
@@ -48,6 +48,7 @@ This repository documents a research project carried out at the [Laboratory for 
   - [Image capturing device](#image-capturing-device)
     - [Requirements](#requirements)
     - [Cameras](#cameras)
+      - [HDR](#hdr)
     - [Image trigger](#image-trigger)
     - [Wiring \& Programming](#wiring--programming)
     - [Gimbal](#gimbal)
@@ -68,14 +69,18 @@ This repository documents a research project carried out at the [Laboratory for 
   - [Citation](#citation)
   - [References](#references)
   - [Appendix](#appendix)
+    - [Fog Decay Study](#fog-decay-study)
+    - [Best Performing Metric](#best-performing-metric)
+    - [HDR code](#hdr-code)
 
 
 ## Goal
-This project had three objectives:
+This project has four objectives:
 
-1. build a device capable of capturing paired images that depict the same scenery, one image with fog and the other without
-2. collect a dataset of paired images
+1. add hdr to existing cameras
+2. collect a dataset of paired images and add-on to existing data set
 3. apply the [pix2pix model](https://phillipi.github.io/pix2pix/) developed at the University of California, Berkeley to the translation problem **fog &rarr; no fog**
+4. compare goodness of fit for metrics
 
 ## Potential applications
 
@@ -84,7 +89,7 @@ This project had three objectives:
 * Military
 
 ## Project timeline
-The project was carried out over the course three months, from July to September 2023. The following Gantt chart shows the project timeline:
+The project was carried out over the course of four months, from January to April 2024. The following Gantt chart shows the project timeline:
 
 ![project timeline](images/gantt_chart_FogEye.png "project timeline")
 <figcaption align = "center"><b>Project timeline</b></figcaption>
@@ -119,6 +124,13 @@ Therefore, we chose to use the [OpenMV](https://openmv.io) [H7](https://openmv.i
 <img src="https://openmv.io/cdn/shop/products/new-cam-v4-angle-web_grande.jpg?v=1536445279" alt="OpenMV H7 camera" width="400"/>
 <figcaption align = "center"><b>OpenMV H7 camera</b></figcaption>
 </p>
+
+### HDR
+We added HDR to the two cameras to get more information from the foggy images because hdr provides brightness and color across a broader dynamic range.
+
+* hdr
+
+Therefore, ...
 
 ### Image trigger
 In order to get exactly paired images from both cameras that are captured at the same time, it is necessary to introduce a common trigger. We used a lightweight Arduino board for this task. Any Arduino board should be capable of sending this trigger, but we used an [Adafruit Feather 32u4 Radio](https://learn.adafruit.com/adafruit-feather-32u4-radio-with-rfm69hcw-module) that was available from an earlier project.
@@ -287,12 +299,7 @@ In the updated prototype, a new fogger with a plastic tube was used. This was di
 The following components are required for the device:
 
 #### Purchased Parts
-- 2x [OpenMV H7 camera](https://openmv.io/collections/products/products/openmv-cam-h7)
-- 1x [Adafruit Feather board](https://www.adafruit.com/product/3458) (or any other microcontroller capable of this task, i.e., any other microcontroller)
-- 1x [Hohem iSteady Q](https://store.hohem.com/products/isteady-q) gimbal
-- 2x Toggle switch (any latching switch that can be used to trigger the cameras)
-- 1x Breadboard 30x70mm
-- 2x Rubber stoppers
+- 1x [handheld portable fog machine](https://www.amazon.com/LENSGO-Hand-held-Portable-Photography-Disinfection/dp/B0CKHG23YR/)
 
 #### Manufactured parts
 - Back box
@@ -329,7 +336,7 @@ DIN912 M3 25mm screw | [3Dfindit](https://www.3dfindit.com/en/digitaltwin/hexago
 
 ## Model Training
 
-The models were either trained on a lab computer equipped with a dedicated GPU (NVIDIA GeForce GTX 970) and 64 GB of RAM or on the University of Utah's [Center for High Performance Computing (CHPC)](https://www.chpc.utah.edu) cluster.
+The models were either trained on on a personal laptop computer equipped with 64 GB of RAM, a lab computer equipped with a dedicated GPU (NVIDIA GeForce GTX 970), and 64 GB of RAM or on the University of Utah's [Center for High Performance Computing (CHPC)](https://www.chpc.utah.edu) cluster.
 All models were trained for the default 200 epochs for the pix2pix model. The training time increased along with the size of the dataset. For the final model, the training time was around 20 hours.
 
 ## Getting started
@@ -498,7 +505,7 @@ This dataset was created by the researchers [Georg Volk](https://www.embedded.un
 ## Limitations
 ### Overexposure
 
-Looking through the images in the dataset, you will notice that it was mostly avoided to face the cameras directly at the sun (which was shining almost every day in the [hot and dry summer of Salt Lake City](https://en.wikipedia.org/wiki/Climate_of_Salt_Lake_City)). This was due to a limitation of the [OpenMV H7 cameras](https://openmv.io/products/openmv-cam-h7) used to capture the images. Their dynamic range is limited and they tend to be unable to resolve the high dynamic range when facing the sun directly.
+Looking through the images in the old dataset, you will notice that it was mostly avoided to face the cameras directly at the sun (which was shining almost every day in the [hot and dry summer of Salt Lake City](https://en.wikipedia.org/wiki/Climate_of_Salt_Lake_City)). This was due to a limitation of the [OpenMV H7 cameras](https://openmv.io/products/openmv-cam-h7) used to capture the images. Their dynamic range is limited and they tend to be unable to resolve the high dynamic range when facing the sun directly.  To cirvumvent the limited dynamic range, HDR was added to the cameras.  More information was obtained from the foggy images with HDR because the camera sees more high dynamic (brightness) ranges.
 
 <p align="center">
 
@@ -511,7 +518,7 @@ The cameras were used in spite of this issue because of their advantages in prog
 
 ### Weather conditions
 
-As just mentioned, the images show almost exclusively sunny scenes. This is due to them being mostly collected during August, which is the clearest month of the year in Salt Lake City, with [the sky being clear around 78% of the time](https://weatherspark.com/y/2706/Average-Weather-in-Salt-Lake-City-Utah-United-States-Year-Round). The few times it was raining, the camera was not used to avoid damage to the electronics.
+As just mentioned, the old images show almost exclusively sunny scenes. This is due to them being mostly collected during August, which is the clearest month of the year in Salt Lake City, with [the sky being clear around 78% of the time](https://weatherspark.com/y/2706/Average-Weather-in-Salt-Lake-City-Utah-United-States-Year-Round). The few times it was raining, the camera was not used to avoid damage to the electronics.  The new images are taken in the evening and during the day over a broader range of forecast skies.
 
 
 # Licensing
@@ -547,7 +554,9 @@ If you use the dataset or any of the code in this repository created by us, plea
 
 # References
 
-* [1]:
+* [1]: “How to Center and Scale Data Using Ployfit.” Stack Overflow, stackoverflow.com/questions/40569675/how-to-center-and-scale-data-using-ployfit. Accessed 28 Mar. 2024.
+* [2]: “What Is the Difference between LAR, and the Bisquare Remain Robust ...” Www.mathworks.com, www.mathworks.com/matlabcentral/answers/\183690-what-is-the-difference-between-lar-and-the-bisquare-remain-robust-in-regression-curve-fitting-tool. Accessed 28 Mar. 2024.
+* [3]: Wikipedia Contributors. “Coefficient of Determination.” Wikipedia, Wikimedia Foundation, 27 Feb. 2019, en.wikipedia.org/wiki/Coefficient_of_determination.
 
 
 # Appendix
@@ -559,9 +568,18 @@ If you use the dataset or any of the code in this repository created by us, plea
 
 We conducted a study on how quickly the fog decays in order to know better how often it needs to be replenished. This was done by filling the fog chamber, letting the fog decay and filming the entire decay using both of the cameras. The resulting video of the fogged camera was analyzed by calculating the [Variance of the Laplacian](https://pyimagesearch.com/2015/09/07/blur-detection-with-opencv/) of each frame as a metric for the intensity of the fog. You can see that after about 5 minutes, the fog intensity becomes quite low.
 
+
+
 <p align="center">
 <img src="plots/fog_decay_study.gif" alt="Fog decay" width="700"/>
 <figcaption align = "center"><b>Fog decay measurement over time</b></figcaption>
 </p>
 
+## Best Performing Metric
+
+We also conducted a study on which metric performed the best over the Variance of the Laplacian, using the coefficient of determination, R^2, to determine goodness of fit.  R^2 describes a proportion of variance in the dependent variable or evaluator (y axis) that can be explained by the independent variable or Variance pf the Laplacian (x axis).
+
+The FogEye data set metric results are available here: [OneDrive]
+
 </details>
+
