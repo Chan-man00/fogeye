@@ -125,6 +125,8 @@ Therefore, we chose to use the [OpenMV](https://openmv.io) [H7](https://openmv.i
 <figcaption align = "center"><b>OpenMV H7 camera</b></figcaption>
 </p>
 
+** Note: IDE License must be purchased at [License](https://openmv.io/products/openmv-cam-board-key) for $15 **
+
 ### HDR
 We added HDR to the two cameras to get more information from the foggy images because hdr provides brightness and color across a broader dynamic range.
 
