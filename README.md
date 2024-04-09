@@ -125,14 +125,12 @@ Therefore, we chose to use the [OpenMV](https://openmv.io) [H7](https://openmv.i
 <figcaption align = "center"><b>OpenMV H7 camera</b></figcaption>
 </p>
 
-** Note: IDE License must be purchased at [License](https://openmv.io/products/openmv-cam-board-key) for $15 **
+** Note: OpenMV IDE License must be purchased at [License](https://openmv.io/products/openmv-cam-board-key) for $15 **
 
 ### HDR
-We added HDR to the two cameras to get more information from the foggy images because hdr provides brightness and color across a broader dynamic range.
+In order to improve performance of our Machine Learning model we implemented HDR processing for our training image datasets. By merging multiples of the same image taken at different exposures HDR provides greater contrast and detail, reduced image artifacts, and a wider range of luminance improving the information provided to the algorithm. The HDR was implemented in two stages. 
 
-* hdr
 
-Therefore, ...
 
 ### Image trigger
 In order to get exactly paired images from both cameras that are captured at the same time, it is necessary to introduce a common trigger. We used a lightweight Arduino board for this task. Any Arduino board should be capable of sending this trigger, but we used an [Adafruit Feather 32u4 Radio](https://learn.adafruit.com/adafruit-feather-32u4-radio-with-rfm69hcw-module) that was available from an earlier project.
