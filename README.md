@@ -128,20 +128,18 @@ Therefore, we chose to use the [OpenMV](https://openmv.io) [H7](https://openmv.i
 ** Note: OpenMV IDE License must be purchased at [License](https://openmv.io/products/openmv-cam-board-key) for $15 **
 
 ### HDR
-In order to improve performance of our Machine Learning model we implemented HDR processing for our training image datasets. By merging multiples of the same image taken at different exposures HDR provides greater contrast and detail, reduced image artifacts, and a wider range of luminance improving the information provided to the algorithm. The HDR was implemented in two stages. 
+To improve performance of our Machine Learning model we implemented HDR processing for our training image datasets. By merging multiples of the same image taken at different exposures HDR provides greater contrast and detail, reduced image artifacts, and a wider range of luminance improving the information provided to the algorithm. The HDR is implemented in two stages. Four images of the same scene are recorded byt the camera at different exposures ranging around what the auto exposure would be, and those images are merged in post processing on a seperate computer. Potentially, both steps of the process could be handled by moving to a raspberry pi.
 
 
 
 ### Image trigger
-In order to get exactly paired images from both cameras that are captured at the same time, it is necessary to introduce a common trigger. We used a lightweight Arduino board for this task. Any Arduino board should be capable of sending this trigger, but we used an [Adafruit Feather 32u4 Radio](https://learn.adafruit.com/adafruit-feather-32u4-radio-with-rfm69hcw-module) that was available from an earlier project.
+In order to get exactly paired images from both cameras that are captured at the same time, it is necessary to introduce a common trigger. Prior stewards of this project used a lightweight Arduino board for this task. Any Arduino board should be capable of sending this trigger, but an [Adafruit Feather 32u4 Radio](https://learn.adafruit.com/adafruit-feather-32u4-radio-with-rfm69hcw-module) was used that was available from an earlier project. The board was connected to both cameras and sends a trigger signal to both cameras at the same time. The cameras are programmed to capture an image when they receive the trigger signal. (https://github.com/Chan-man00/fogeye/blob/main/openmv/read_external_trigger.py)
 
 <p align="center">
 <img src="https://cdn-learn.adafruit.com/guides/cropped_images/000/001/271/medium640/thumb.jpg?1520544029" alt="Adafruit Feather 32u4 Radio board" width="400"/>
 <figcaption align = "center"><b>Adafruit Feather 32u4 Radio board</b></figcaption>
 
 </p>
-
-The board is connected to both cameras and sends a trigger signal to both cameras at the same time. The cameras are programmed to capture an image when they receive the trigger signal.
 
 ### Wiring & Programming
 <p align="center">
