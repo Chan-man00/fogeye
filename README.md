@@ -125,7 +125,7 @@ Therefore, we chose to use the [OpenMV](https://openmv.io) [H7](https://openmv.i
 ** Note: OpenMV IDE License must be purchased at [License](https://openmv.io/products/openmv-cam-board-key) for $15 **
 
 ### HDR
-To improve performance of our Machine Learning model we implemented HDR processing for our training image datasets. By merging multiples of the same image taken at different exposures HDR provides greater contrast and detail, reduced image artifacts, and a wider range of luminance improving the information provided to the algorithm. The HDR is implemented in two stages. Four images of the same scene are recorded byt the camera at different exposures ranging around what the auto exposure would be, and those images are merged in post processing on a seperate computer. Potentially, both steps of the process could be handled by moving to a raspberry pi.
+To improve performance of our Machine Learning model we implemented HDR processing for our training image datasets. By merging multiples of the same image taken at different exposures HDR provides greater contrast and detail, reduced image artifacts, and a wider range of luminance improving the information provided to the algorithm. The HDR is implemented in two stages. Four images of the same scene are recorded by the camera at different exposures ranging around what the auto exposure would be. Those images are then merged in post processing on a separate computer. Potentially, both steps of the process could be handled by moving to a raspberry pi.
 
 
 
@@ -142,7 +142,7 @@ For more on the arduino setup go [here](https://github.com/Chan-man00/fogeye/blo
 
 </p>
 
-Currently, the camera is set up for HDR 4-exposure bursts, [push_button_trigger](https://github.com/Chan-man00/fogeye/blob/main/openmv/button_control_4dm.py) and the wiring has been changed over to a push button. The push button switch is run between P0 and ground.
+Currently, the camera is set up for HDR 4-exposure bursts [push_button_trigger](https://github.com/Chan-man00/fogeye/blob/main/openmv/button_control_4dm.py) and the wiring has been changed over to a push button. The push button switch is run between P0 and ground.
 
 </p>
 
@@ -167,7 +167,7 @@ In order to stabilize the images while walking and ensure they are approximately
 
 In order to be able to capture approximately the same image, the cameras had to be mounted as close together as possible. Simultaneously, the case must be able to hold the fog surrounding one camera while isolating the other camera from the influence of the fog, keeping all other conditions the same.
 
-Therefore, both cameras are arranged side by side, inside separate chambers. The setup of the initial prototype put the box with the two cameras far above axis of rotation of the gimbal. The resulting torque to keep the construction level was too high in this configuration, causing the gimbal to shut off regularly.
+Therefore, both cameras are arranged side by side, inside separate chambers. The setup of the initial prototype put the box with the two cameras far above the axis of rotation of the gimbal. The resulting torque to keep the construction level was too high in this configuration, causing the gimbal to shut off regularly.
 
 <p align="center">
 <img src="images/first_prototype.gif" alt="first prototype" width="150"/>
