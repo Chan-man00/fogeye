@@ -416,15 +416,18 @@ This dataset was created by the researchers [Georg Volk](https://www.embedded.un
 
 ## Collected dataset
 *description & details of the collected dataset*
+</p>
 Originally, approximately 10,000 images of QVGA(240x320 pixels) quality were collected in the RGB565(5 bits for Red and Blue, 6 bits for Green) format. For the implementation of HDR, 244 images were collected in the original format and combined into 61 HDR images, and 2192 images were collected in VGA(480x640 pixels) quality in the raw sensor data format. 
-~10.3k QVGA(240x320) RGB 565 images have been collected
-2192 raw data images were collected
-2436 images were collect for compression into 609 HDR images
+
+- ~10.3k QVGA(240x320) RGB 565 images have been collected
+- 2192 raw data images were collected
+- 2436 images were collect for compression into 609 HDR images
 
 
 ## pix2pix on dataset
 
 While HDR processing reduced the total number of images available for training, collection of raw data nullified this reduction through the use of differing levels of gamma correction. By varying the gamma different details are revealed or accentuated.
+</p>
 *ML results on dataset*
 
 
