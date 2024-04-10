@@ -89,10 +89,7 @@ This project has four objectives:
 * Military
 
 ## Project timeline
-The project was carried out over the course of four months, from January to April 2024. The following Gantt chart shows the project timeline:
-
-![project timeline](images/gantt_chart_FogEye.png "project timeline")
-<figcaption align = "center"><b>Project timeline</b></figcaption>
+The project was initially carried out over the course three months, from July to September 2023. Continuing contributions have occurred from January to April 2024. 
 
 
 ## Image capturing device
@@ -135,6 +132,8 @@ To improve performance of our Machine Learning model we implemented HDR processi
 ### Image trigger
 In order to get exactly paired images from both cameras that are captured at the same time, it is necessary to introduce a common trigger. Prior stewards of this project used a lightweight Arduino board for this task. Any Arduino board should be capable of sending this trigger, but an [Adafruit Feather 32u4 Radio](https://learn.adafruit.com/adafruit-feather-32u4-radio-with-rfm69hcw-module) was used that was available from an earlier project. The board was connected to both cameras and sends a trigger signal to both cameras at the same time. The cameras are programmed to capture an image when they receive the trigger signal. [read_external_trigger](https://github.com/Chan-man00/fogeye/blob/main/openmv/read_external_trigger.py)
 
+For more on the arduino setup go [here](https://github.com/Chan-man00/fogeye/blob/main/misc/arduino_info)
+
 </p>
 
 <p align="center">
@@ -152,10 +151,6 @@ Currently, the camera is set up for HDR 4-exposure bursts, [push_button_trigger]
 <figcaption align = "center"><b>Camera Setup Back</b></figcaption>
 
 </p>
-
-For more on the arduino setup go [here]()
-
-
 
 ### Gimbal
 
@@ -210,7 +205,20 @@ The case was designed in [Fusion 360](https://www.autodesk.com/products/fusion-3
 The following components are required for the device:
 
 #### Purchased Parts
-- 1x [handheld portable fog machine](https://www.amazon.com/LENSGO-Hand-held-Portable-Photography-Disinfection/dp/B0CKHG23YR/)
+
+*Initial purchase
+- 2x [OpenMV H7 camera](https://openmv.io/collections/products/products/openmv-cam-h7)
+- 1x [Adafruit Feather board](https://www.adafruit.com/product/3458) (or any other microcontroller capable of this task, i.e., any other microcontroller)
+- 1x [Hohem iSteady Q](https://store.hohem.com/products/isteady-q) gimbal
+- 2x Toggle switch (any latching switch that can be used to trigger the cameras)
+- 1x Breadboard 30x70mm
+- 2x Rubber stoppers
+- External USB Power Supply
+
+*Secondary purchase
+- 1x Push Button Switch
+- Various connecting wires
+- USB power adapter
 
 #### Manufactured parts
 - Back box
@@ -407,29 +415,24 @@ This dataset was created by the researchers [Georg Volk](https://www.embedded.un
 </details>
 
 ## Collected dataset
-
 *description & details of the collected dataset*
+Originally, approximately 10,000 images of QVGA(240x320 pixels) quality were collected in the RGB565(5 bits for Red and Blue, 6 bits for Green) format. For the implementation of HDR, 244 images were collected in the original format and combined into 61 HDR images, and 2192 images were collected in VGA(480x640 pixels) quality in the raw sensor data format. 
+~10.3k QVGA(240x320) RGB 565 images have been collected
+2192 raw data images were collected
+2436 images were collect for compression into 609 HDR images
+
+
 ## pix2pix on dataset
 
+While HDR processing reduced the total number of images available for training, collection of raw data nullified this reduction through the use of differing levels of gamma correction. By varying the gamma different details are revealed or accentuated.
 *ML results on dataset*
 
+
 ## Limitations
-### Overexposure
 
-Looking through the images in the old dataset, you will notice that it was mostly avoided to face the cameras directly at the sun (which was shining almost every day in the [hot and dry summer of Salt Lake City](https://en.wikipedia.org/wiki/Climate_of_Salt_Lake_City)). This was due to a limitation of the [OpenMV H7 cameras](https://openmv.io/products/openmv-cam-h7) used to capture the images. Their dynamic range is limited and they tend to be unable to resolve the high dynamic range when facing the sun directly.  To cirvumvent the limited dynamic range, HDR was added to the cameras.  More information was obtained from the foggy images with HDR because the camera sees more high dynamic (brightness) ranges.
+An initial limitaion to the first iteration of the ML model was the homogeneity of the collected data. While the initial data set was larger than the one collected by the second group of participants on this project, it was collected in a small geographic area and under fairly uniform Utah summer conditions. The second dataset expands diversity of setting and weather significantly.   
 
-<p align="center">
-
-original | fogged
-:-------------------------:|:-------------------------:
-![original](images/overexposure_example_A.bmp) | ![fogged](images/overexposure_example_B.bmp)
-</p>
-
-The cameras were used in spite of this issue because of their advantages in programmability, connectivity and compactness.
-
-### Weather conditions
-
-As just mentioned, the old images show almost exclusively sunny scenes. This is due to them being mostly collected during August, which is the clearest month of the year in Salt Lake City, with [the sky being clear around 78% of the time](https://weatherspark.com/y/2706/Average-Weather-in-Salt-Lake-City-Utah-United-States-Year-Round). The few times it was raining, the camera was not used to avoid damage to the electronics.  The new images are taken in the evening and during the day over a broader range of forecast skies.
+A second limitation was with the cameras themselves. It is only recently that the cameras have been set to capture data in the raw format, and only at the VGA resolution. All other resolution levels are locked into the RGB565 format. While training at lower resolution for proof of concept is advantageous due to the lower computational time, flexibility in selecting resolution and format is desireable. Additionally, the ability to do the HDR processing in conjunction with image capture would have sped up the process. A platform like the raspberry pi 5 with its capacity to simultaneously operate 2 cameras and then process images in the desired format would have simplified the operation. And at about the same price point as the OpenMV cameras. 
 
 
 # Licensing
@@ -462,6 +465,7 @@ If you use the dataset or any of the code in this repository created by us, plea
       primaryClass={cs.CV}
 }
 ```
+*Add our paper here*
 
 # References
 
