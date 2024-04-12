@@ -165,34 +165,26 @@ In order to stabilize the images while walking and ensure they are approximately
 
 ### Case
 
-In order to be able to capture approximately the same image, the cameras had to be mounted as close together as possible. Simultaneously, the case must be able to hold the fog surrounding one camera while isolating the other camera from the influence of the fog, keeping all other conditions the same.
-
-Therefore, both cameras are arranged side by side, inside separate chambers. The setup of the initial prototype put the box with the two cameras far above the axis of rotation of the gimbal. The resulting torque to keep the construction level was too high in this configuration, causing the gimbal to shut off regularly.
-
-<p align="center">
-<img src="images/first_prototype.gif" alt="first prototype" width="150"/>
-<figcaption align = "center"><b>The gimbal failing to keep the first prototype level</b></figcaption>
-</p>
-
+In order to be able to capture approximately the same image, the cameras had to be mounted as close together as possible. Simultaneously, the case must be able to hold the fog surrounding one camera while isolating the other camera from the influence of the fog, keeping all other conditions the same. Therefore, both cameras are arranged side by side, inside separate chambers.
 
 The case was designed in [Fusion 360](https://www.autodesk.com/products/fusion-360/overview). Some 3D printed files were printed using a [Creality Ender 3 Pro](https://www.creality3dofficial.com/products/ender-3-pro-3d-printer), some on an [Ultimaker S3](https://ultimaker.com/3d-printers/ultimaker-s3). The front plate was lasercut on a CO<sub>2</sub> laser cutter.
 
 <p align="center">
-<img src="images/gimbal_mount_3D_print.png" alt="CAD design of the gimbal mount" width="250"/>
+<img src="https://github.com/apoll2000/stereofog/blob/main/images/gimbal_mount_3D_print.png" alt="CAD design of the gimbal mount" width="250"/>
 <figcaption align = "center"><b>CAD design of the gimbal mount</b></figcaption>
 </p>
 <p align="center">
-<img src="images/gimbal_bridge_3D_print.png" alt="CAD design of the gimbal bridge" width="200"/>
+<img src="https://github.com/apoll2000/stereofog/blob/main/images/gimbal_bridge_3D_print.png" alt="CAD design of the gimbal bridge" width="200"/>
 <figcaption align = "center"><b>CAD design of the gimbal bridge</b></figcaption>
 
 </p>
 <p align="center">
-<img src="images/fog_device_assembly_3D_print_box_front.png" alt="Front view of entire CAD design" width="600"/>
+<img src="https://github.com/apoll2000/stereofog/blob/main/images/fog_device_assembly_3D_print_box_front.png" alt="Front view of entire CAD design" width="600"/>
 <figcaption align = "center"><b>Front view of entire CAD design</b></figcaption>
 </p>
 
 <p align="center">
-<img src="images/fog_device_assembly_3D_print_box_rear.png" alt="Rear view of entire CAD design" width="600"/>
+<img src="https://github.com/apoll2000/stereofog/blob/main/images/fog_device_assembly_3D_print_box_rear.png" alt="Rear view of entire CAD design" width="600"/>
 <figcaption align = "center"><b>Rear view of entire CAD design</b></figcaption>
 </p>
 
