@@ -7,7 +7,7 @@ The FogEye dataset is available here: [OneDrive]([https://drive.google.com/drive
 
 ## Graphical Abstract
 <p align="center">
-<img src="images/paper_headline_image.png" alt="Graphical abstract" width="700"/>
+<img src="https://github.com/apoll2000/stereofog/blob/main/images/paper_headline_image.png" alt="Graphical abstract" width="700"/>
 <figcaption align = "center"><b>Overview of the FogEye project. a): A diagram summarizing the work done in this work. b): Example results obtained by applying the pix2pix framework to the FogEye dataset. Our approach works for a range of fog densities.</b></figcaption>
 </p>
 
@@ -17,7 +17,7 @@ nothing to show here
 ---
 
 <p align="center">
-<img src="images/FogEye_logo.png" alt="FogEye logo" width="275"/>
+<img src="https://github.com/apoll2000/stereofog/blob/main/images/stereofog_logo.png" alt="FogEye logo" width="275"/>
 </p>
 
 <p align="center">
