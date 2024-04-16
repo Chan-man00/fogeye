@@ -451,13 +451,10 @@ The hardware is licensed under the [CERN Open HArdware License v2 - Weakly Recip
 If you use the dataset or any of the code in this repository created by us, please cite the following paper:
 
 ```
-@misc{pollak2023FogEye,
+@misc{Welch2024FogEye,
       title={FogEye -- Computational DeFogging via Image-to-Image Translation on a real-world Dataset}, 
-      author={Anton Pollak and Rajesh Menon},
-      year={2023},
-      eprint={2312.02344},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      author={Chandler Welch},
+      year={2024}
 }
 ```
 *Add our paper here*
