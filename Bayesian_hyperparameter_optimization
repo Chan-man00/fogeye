@@ -1,0 +1,159 @@
+import os
+import argparse
+import subprocess
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage.metrics import structural_similarity
+from ssim import SSIM
+from ssim.utils import get_gaussian_kernel
+from PIL import Image
+import cv2
+from utils_stereofog import calculate_model_results
+'''
+pip install scikit-learn
+pip install scikit-optimize
+pip install matplotlib
+pip install bayesian-optimization
+'''
+import numpy as np
+from skopt import BayesSearchCV
+#from skopt import hp
+from bayes_opt import BayesianOptimization, UtilityFunction
+import sklearn
+# SK Learn imports
+from sklearn.model_selection import cross_val_score
+from sklearn.svm import SVC
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score
+# Pandas import
+import pandas as pd
+
+
+# Needs finished for dataroot etc. I have it hard coded right now to a specific folder in my computer. ln 55
+'''parser = argparse.ArgumentParser()
+
+parser.add_argument('--results_path', required=True, help='path to the results folder (with subfolder test_latest)')
+
+args = parser.parse_args()
+
+results_path = args.results_path'''
+
+
+
+
+
+
+
+
+
+# Define the Internal method for optimization
+# Function to be optimized
+def train_network(lr, batch_size, beta1,  n_layers_D, ngf, ndf, dropout_rate,  pool_size): # lr_policy, norm, netG, netD, init_type,gan_mode, n_epochs, 
+    # Convert continuous variables to appropriate format
+    batch_size = int(batch_size)
+    
+    #dataroot = ".\\datasets\\stereofog_images\\04-04-24_augmented"
+    dataroot = ".\\datasets\\stereofog_images\\4-15-24-hdr"
+    n_layers_D = int(n_layers_D)
+    ngf = int(ngf)
+    ndf = int(ndf)
+    pool_size = int(pool_size)
+    lr = float(lr)
+    beta1 = float(beta1)
+    dropout_rate = float(dropout_rate)
+    norm = 'batch'
+    lr_policy = 'linear'
+    gan_mode = 'vanilla'
+    init_type = 'normal'
+    netG = 'unet_256'
+    netD = 'n_layers'
+    n_epochs = 200
+    n_epochs = int(n_epochs)
+
+        # --results_path .\\results\\optimizing\\optimizing_results 
+    # Command to run the Python script
+    command = f"python train.py --dataroot {dataroot} --no_html --name optimizing --batch_size {batch_size} --model pix2pix --direction BtoA --lr {lr} --n_epochs {n_epochs} --n_epochs_decay 0 --beta1 {beta1} --init_type {init_type} --gan_mode {gan_mode} --netD n_layers --n_layers_D {n_layers_D} --ngf {ngf} --ndf {ndf} --lr_policy {lr_policy} --norm {norm} --netD {netD} --netG {netG} --pool_size {pool_size} --dropout_rate {round(dropout_rate,4)}"
+    
+    # Execute the command and capture output
+    result = subprocess.run(command, shell=True, text=True, capture_output=True, check=True, timeout=None)
+    '''with subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) as proc:
+        proc.wait()
+        stdout, stderr = proc.communicate() '''
+
+    # Extract the metric you want to optimize. Assume it's printed as 'Final loss: X.XX'
+    # This is just a placeholder. You must modify your training script to output the necessary metric.
+    output = result.stdout
+    
+    #print(output)
+    final_loss = float(output.split('G_L1\': ')[-1][:8].strip())
+
+    # Minimizing the loss (hence negative as BayesOpt maximizes the target by default)
+    return -final_loss
+
+
+
+# Load the wine data set using load_wine()
+
+'''test_dataset = load_data_set("car_speeding_tickets.csv")
+# Retrieve dataset components data and target
+X = test_dataset["data"]
+y = test_dataset["expected"]
+# Create training sets using random distribution of 48
+X_trn, X_tst, y_train, y_test = train_test_split(X, y, stratify = y,random_state = 12)
+# Create the min/max scaler 							
+min_max_sclr = MinMaxScaler()
+X_train_scaled = min_max_sclr.fit_transform(X_trn)
+X_test_scaled = min_max_sclr.transform(X_tst)'''
+
+
+# bayes_opt requires this to be a dictionary.
+bds = {'dropout_rate': (0.01, 0.9),
+		'ngf': (16, 128),
+        'ndf': (16, 128),
+		'n_layers_D': (1, 6),
+        'beta1': (.1, 1.0),
+        'lr': (0.0000001, .1),
+        'pool_size': (1, 200),
+        'batch_size': (1, 100),
+		}
+
+
+"""'netG': ('resnet_9blocks', 'resnet_6blocks', 'unet_256', 'unet_128'),
+		'netD': ("basic", "n_layers", "pixel"),
+         '--norm': ("batch", "instance", "none"),
+        'lr_policy': ('linear', 'step', 'plateau', 'cosine'),
+        'gan_mode': ('vanilla', 'lsgan', 'wgangp'),
+        'n_epochs': (100),
+        'lr_decay_iters': (10, 100),
+		'init_type': ('normal', 'xavier', 'kaiming', 'orthogonal')"""
+
+# Create a BayesianOptimization optimizer and optimize the function
+optimizer = BayesianOptimization(f = train_network,
+                                 pbounds = bds,
+                                 random_state = 1)
+
+
+optimizer.maximize(init_points = 5, n_iter = 50)
+best_score = optimizer.max
+print(best_score)
+'''learning_rate_space = hp.uniform('learning_rate', 0.01, 1)
+num_hidden_units_space = hp.quniform('num_hidden_units', 10, 100, 1)
+search_space = [learning_rate_space, num_hidden_units_space]
+optimizer = BayesSearchCV(
+    estimator = create_model(),
+    search_spaces: list,
+    optimizer_kwargs: Any | None = None,
+    n_iter: int = 50,
+    scoring: Any | None = None,
+    fit_params: Any | None = None,
+    n_jobs: int = 1,
+    n_points: int = 1,
+    refit: bool = True,
+    cv: Any | None = None,
+    verbose: int = 0,
+    pre_dispatch: str = '2*n_jobs',
+    random_state: Any | None = None,
+    error_score: str = 'raise',
+    return_train_score: bool = False
+)'''
