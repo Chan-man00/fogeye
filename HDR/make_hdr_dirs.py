@@ -21,7 +21,7 @@ def make_dir_hdr(dataroot):
     makes individual directories for each set of 4 images to be processed
     HDR this is a helper script for ordinizational processes it into also
     helps with debugging and keeping track of the images as you can easily
-    see which images are in which set and ajust offsets accordingly.'''
+    see which images are in which set and adjust offsets accordingly.'''
     __temp = (len(os.listdir(dataroot)))//4
     for i in range(__temp):
         os.makedirs(f'{dataroot}/{i}' , exist_ok=True)
