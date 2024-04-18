@@ -1,0 +1,20 @@
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+PIL
+Python==3.12.1
+pillow==10.2.0
+opencv-python==4.9.0.80
+matplotlib==3.8.3
+ImageHash==4.3.1
+imageio==2.34.0
+Imath
+Augmentor==0.2.12
+visdom==0.2.4
+wandb==0.16.3
+rawpy==0.19.1
+scikit-image==0.22.0
+dominate==2.4.0
+pyssim
+scikit-learn
+scikit-optimize
+matplotlib
+bayesian-optimization
