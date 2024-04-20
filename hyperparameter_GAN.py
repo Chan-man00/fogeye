@@ -1,3 +1,5 @@
+####################### this is all out of date. see Bayeseian_optimization.py #######################################
+"""
 import argparse
 import subprocess
 
@@ -56,3 +58,5 @@ for command in test_script:
     subprocess.call(command, shell=True)
 
 print("All hyperparameter tests for GAN mode completed.")
+
+"""
