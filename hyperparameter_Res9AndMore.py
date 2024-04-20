@@ -1,3 +1,5 @@
+####################### this is all out of date. see Bayeseian_optimization.py #######################################
+"""
 import subprocess
 
 # Training
@@ -33,3 +35,4 @@ commands = [
 # Loop through commands and execute each one sequentially
 for command in commands:
     subprocess.call(command, shell=True)
+    """
