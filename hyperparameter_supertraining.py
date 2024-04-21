@@ -1,3 +1,5 @@
+##################################  out of date use bayesian_optimization #####################################
+"""
 # Hyperparameter supertraining script
 # This script will run the specified hyperparameter training scripts in sequence, in order to be able to run everything everywhere all at once.
 import argparse
@@ -34,3 +36,4 @@ for script in scripts:
     results_subpath = script.replace(".py", "")
     print("Evaluating hyperparameter script:", script)
     subprocess.call(f"python evaluate_hyperparameter.py --results_path results/hyperparameters/{results_subpath}", shell=True)
+    """
