@@ -1,3 +1,5 @@
+##################################  out of date use bayesian_optimization #####################################
+"""
 import argparse
 import subprocess
 
@@ -56,3 +58,4 @@ for command in test_script:
     subprocess.call(command, shell=True)
 
 print("All hyperparameter tests for n_layers_D completed.")
+"""
