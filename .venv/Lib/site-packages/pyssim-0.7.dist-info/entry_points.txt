@@ -1,0 +1,2 @@
+[console_scripts]
+pyssim = ssim.__main__:main

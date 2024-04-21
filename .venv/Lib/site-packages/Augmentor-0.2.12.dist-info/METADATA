@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: Augmentor
+Version: 0.2.12
+Summary: Image augmentation library for Machine Learning
+Home-page: https://github.com/mdbloice/Augmentor
+Author: Marcus D. Bloice
+Author-email: marcus.bloice@medunigraz.at
+License: MIT
+Keywords: image,augmentation,artificial,generation,machine,learning
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE.md
+Requires-Dist: Pillow (>=5.2.0)
+Requires-Dist: tqdm (>=4.9.0)
+Requires-Dist: numpy (>=1.11.0)
+Requires-Dist: futures (>=3.2.0) ; python_version == "2.7"
+
+Image augmentation library for Machine Learning
+

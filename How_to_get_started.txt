@@ -1,0 +1,54 @@
+1) python==3.12.1 # from python.org or something like that, include it in your enviorment variables when the install thing pops up, its a check box.
+2) intall git # https://git-scm.com/download/win
+
+3) open Visual Studio and start a terminal then enter the following. # these commands are given in powershell as that is the hardest thing to find help on use google for bash etc.
+
+git clone https://github.com/Chan-man00/fogeye.git
+cd fogeye
+python -m venv .venv ### activate the enviorment then kill the terminals and start a new one so it can update the terminal interpreter to be the virtual enviorment.
+New-Item .gitignore -Type File
+".venv/" | Out-File -Append .gitignore
+git add .gitignore
+git commit -m "Add .venv to .gitignore"
+git push
+git status
+git add .
+git commit -m "Committing local changes before update"
+git stash push -m "Stashing local changes before update"
+git fetch origin
+# Now don't break my code from here, start your own repository if you are new to coding, or if you are experienced you are welcome to add to it and add yourself into the citations.
+# If you have questions text me at (435)229-6840, if your questions can easily be solved by a YouTube video I will not be angery JUST DISAPOINTED...
+# Otherwise good luck and lmk if you do anything cool.
+
+######## some extra sources https://code.visualstudio.com/docs/python/environments
+
+##### install all the dependancies for the code #####
+pip3 install torch torchvision torchaudio ##### go to https://pytorch.org/get-started/locally/ and use the command for your system cuda/CPU cuda is NVIDIA.
+pip install wandb
+pip install opencv-python
+pip install dominate==2.4.0
+pip install visdom>=0.1.8.8
+pip install Augmentor
+pip install pyssim
+pip install numpy
+pip install IMath
+pip install scikit-learn
+pip install scikit-optimize
+pip install matplotlib
+pip install bayesian-optimization
+####################################################
+
+######## or use the requirements file I made #######
+pip install requirements.txt
+####################################################
+
+
+
+
+############## these are some typical commands and how they look in the terminal. Argparser is easy to understand just don't overlook it for too long. #################
+
+python preprocess_stereofog_dataset.py --dataroot .\datasets\stereofog_images  # This will put the data into a form the models can train on it.
+python train.py --dataroot .\datasets\stereofog_images --name stereo_pix2pix --model pix2pix --direction BtoA --gpu_ids -1 --n_epochs 1  # gpu_ids -1 is for devices that are not cuda enabled.
+python test.py --dataroot .\datasets\stereofog_images --direction BtoA --model pix2pix --name stereo_pix2pix --gpu_ids -1
+########################################################################################################################################################################
+
