@@ -490,7 +490,17 @@ We also conducted a study on which metric performed the best over the Variance o
 
 <p align="center">
 <img src="plots/PearsonvsLaplace.gif" alt="R^2" width="1366"/>
-<figcaption align = "center"><b>Pearson vs LaPlace, Robust fit: None, Center and Scale.</b></figcaption>
+<figcaption align = "center"><b>Pearson vs LaPlace- Robust fit: None, Center and Scale.</b></figcaption>
+</p>
+
+<p align="center">
+<img src="plots/MSEvsLaplace.gif" alt="R^2" width="1366"/>
+<figcaption align = "center"><b>MSE vs LaPlace- Robust fit: None, Center and Scale.</b></figcaption>
+</p>
+
+<p align="center">
+<img src="plots/NCC vs Laplace.gif" alt="R^2" width="1366"/>
+<figcaption align = "center"><b>NCC vs LaPlace- Robust fit: Bisquare, Center and Scale.</b></figcaption>
 </p>
 
 ## HDR
