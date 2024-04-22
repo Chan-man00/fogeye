@@ -490,7 +490,7 @@ The FogEye data set metric results are available here: [OneDrive]
 
 ## HDR
 
-This code defines the High Definition Resolution environment.
+This code defines the High Dynamic Range environment.
 
 ''' requirements for this code**
 pip install opencv-python
