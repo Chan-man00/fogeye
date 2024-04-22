@@ -489,7 +489,7 @@ We also conducted a study on which metric performed the best over the Variance o
 
 
 <p align="center">
-<img src="plots/PearsonvsLaplace.gif" alt="R^2" width="1366"/>
+<img src="plots/Pearson_vsLaplace.gif" alt="R^2" width="1366"/>
 <figcaption align = "center"><b>Pearson vs LaPlace- Robust fit: None, Center and Scale.</b></figcaption>
 </p>
 
