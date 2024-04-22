@@ -486,7 +486,12 @@ We conducted a study on how quickly the fog decays in order to know better how o
 
 We also conducted a study on which metric performed the best over the Variance of the Laplacian, using the coefficient of determination, R^2, to determine goodness of fit.  R^2 describes a proportion of variance in the dependent variable or evaluator (y axis) that can be explained by the independent variable or Variance pf the Laplacian (x axis).
 
-The FogEye data set metric results are available here: [OneDrive]
+
+
+<p align="center">
+<img src="PearsonvsLaplace.gif" alt="Fog decay" width="700"/>
+<figcaption align = "center"><b>Pearson vs LaPlace, Robust fit: None, Center and Scale.</b></figcaption>
+</p>
 
 ## HDR
 
