@@ -492,7 +492,6 @@ The FogEye data set metric results are available here: [OneDrive]
 
 This code defines the High Definition Resolution environment.
 
-\begin{lstlisting}[language=TeX, caption=HDR code.]
 ''' requirements for this code**
 pip install opencv-python
 pip install numpy
