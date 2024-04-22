@@ -499,6 +499,16 @@ We also conducted a study on which metric performed the best over the Variance o
 </p>
 
 <p align="center">
+<img src="plots/SSIM vs Laplace.gif" alt="R^2" width="1366"/>
+<figcaption align = "center"><b>SSIM vs LaPlace- Robust fit: Bisquare, Center and Scale.</b></figcaption>
+</p>
+
+<p align="center">
+<img src="plots/CW-SSIM vs Laplace.gif" alt="R^2" width="1366"/>
+<figcaption align = "center"><b>CW-SSIM vs LaPlace- Robust fit: Bisquare, Center and Scale.</b></figcaption>
+</p>
+
+<p align="center">
 <img src="plots/NCC vs Laplace.gif" alt="R^2" width="1366"/>
 <figcaption align = "center"><b>NCC vs LaPlace- Robust fit: Bisquare, Center and Scale.</b></figcaption>
 </p>
