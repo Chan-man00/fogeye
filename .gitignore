@@ -199,3 +199,5 @@ datasets/stereofog_images/A/test/142.bmp
 datasets/stereofog_images/A/test/168.bmp
 datasets/stereofog_images/A/test/170.bmp
 datasets/stereofog_images/A/test/186.bmp
+*.raw
+

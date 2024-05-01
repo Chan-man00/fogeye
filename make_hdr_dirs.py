@@ -14,9 +14,6 @@ import imageio
 import datetime
 import subprocess
 
-dataroot = './pre_hdr/3_31_24_fog'
-output_dataroot = './post_hdr/hdr_images/fog'
-
 
 def make_dir_hdr(dataroot):
     ''' this function deals with .raw to .bmp conversion and
