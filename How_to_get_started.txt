@@ -52,3 +52,17 @@ python train.py --dataroot .\datasets\stereofog_images --name stereo_pix2pix --m
 python test.py --dataroot .\datasets\stereofog_images --direction BtoA --model pix2pix --name stereo_pix2pix --gpu_ids -1
 ########################################################################################################################################################################
 
+
+
+
+################## bash commands for utilizing git ######################
+git pull # updates your repository for any changes.
+git checkout -b [branchname]  # creates a new branch for you to work in.
+pit push origin changes  # this pushes the local changes you have made onto your branch.
+git rm [filename]  # this removes the file 
+git rm --cached [folder/]  # this will remove the folder from your git without deleting it.
+touch [folder/filename] # creates a file in the folder specified.
+# in your .gitignore you can use *[something] to exclude all the files ending with something.
+git add -a # stage all the changes you have made to be commited.
+echo 'application/cache' >> .gitignore # adds lines to your .gitignore file
+
